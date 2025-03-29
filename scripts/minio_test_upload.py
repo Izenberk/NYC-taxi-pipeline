@@ -14,7 +14,7 @@ s3 = boto3.client(
     aws_access_key_id=access_key,
     aws_secret_access_key=secret_key,
     config=Config(signature_version="s3v4"),
-    region_name="ap-southeast-7" # Region doen't matter in MinIO
+    region_name="us-east-1" # Region doen't matter in MinIO
 )
 
 # Create a small test file
