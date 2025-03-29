@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 
+print("🔥 Starting Spark session...")
 
-# Create Spark session
 spark = SparkSession.builder \
     .appName("ReadYellowTripdataFromMinIO") \
     .config("spark.hadoop.fs.s3a.endpoint", "http://minio:9000") \
@@ -13,15 +13,22 @@ spark = SparkSession.builder \
     .config("spark.hadoop.fs.s3a.endpoint.region", "us-east-1") \
     .getOrCreate()
 
-# Remote Parquet URL (January 2023 Yellow Taxi)
-s3_path = "s3a://nyc-taxi/raw/yellow_tripdata_2023-01.parquet"
+print("✅ Spark session created!")
 
-# Read Parquet file directly from URL
-df = spark.read.parquet(s3_path)
+try:
+    print("📦 Trying to read Parquet file from MinIO...")
+    df = spark.read.parquet("s3a://nyc-taxi/raw/yellow_tripdata_2023-01.parquet")
+    print("✅ Data loaded successfully!")
 
-# Show schema and few rows
-df.printScema()
-df.show(5)
+    print("🧬 Schema:")
+    df.printSchema()
 
-# Stop Spark session
-spark.stop()
+    print("🔍 Sample rows:")
+    df.show(5, truncate=False)
+
+except Exception as e:
+    print("❌ Failed to read data!")
+    print(e)
+
+finally:
+    spark.stop()
