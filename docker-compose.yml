@@ -19,11 +19,13 @@ services:
     container_name: spark-master
     environment:
       - SPARK_MODE=master
+      - SPARK_SUBMIT_OPTIONS=--jars /opt/bitnami/spark/jars/postgresql-42.7.5.jar
     ports:
       - "7077:7077"
       - "8080:8080"
     volumes:
       - ./spark-app:/opt/spark-app
+      - ./spark-app/jars/postgresql-42.7.5.jar:/opt/bitnami/spark/jars/postgresql-42.7.5.jar
     networks:
       - shared-net
 
@@ -33,15 +35,35 @@ services:
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_SUBMIT_OPTIONS=--jars /opt/bitnami/spark/jars/postgresql-42.7.5.jar
     depends_on:
       - spark-master
     ports:
       - "8081:8081"
+    volumes:
+      - ./spark-app:/opt/spark-app
+      - ./spark-app/jars/postgresql-42.7.5.jar:/opt/bitnami/spark/jars/postgresql-42.7.5.jar
+    networks:
+      - shared-net
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: nyc_taxi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - shared-net
 
 volumes:
   minio_data:
+  postgres_data:
 
 networks:
   shared-net:
