@@ -1,6 +1,6 @@
 SELECT
-    EXTRACT(DOW FROM tpep_pickup_datetime) AS weekday,
+    EXTRACT(DOW FROM pickup_datetime) AS weekday,
     COUNT(*) AS total_trips
-FROM public.yellow_tripdata_2023_01
+FROM {{ ref('stg_yellow_tripdata')}}
 GROUP BY weekday
 ORDER BY weekday
