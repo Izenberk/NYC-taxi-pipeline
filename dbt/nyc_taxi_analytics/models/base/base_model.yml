@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: daily_trip_metrics
+    description: "Trips and average fare by day"
+    columns:
+      - name: trip_date
+        tests: [not_null, unique]
+      - name: total_trips
+        tests: [not_null]
+
+  - name: revenue_by_vendor
+    description: "Revenue summary by vendor"
+    columns:
+      - name: vendor_id
+        tests: [not_null, unique]
+      - name: total_revenue
+        tests: [not_null]
+
+  - name: avg_trip_dist_by_payment
+    description: "Average trips distance by payment method"
+    columns:
+      - name: payment_type
+        tests: [not_null]
+      - name: total_trips
+        tests: [not_null]
+
+  - name: trip_by_weekday
+    description: "Trips summary by weekday"
+    columns:
+      - name: weekday
+        tests: [not_null, unique]
+      - name: total_trips
+        tests: [not_null]
