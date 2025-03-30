@@ -1,7 +1,7 @@
 SELECT
-	DATE(tpep_pickup_datetime) AS trip_date,
+	DATE(pickup_datetime) AS trip_date,
 	COUNT(*) AS total_trips,
 	ROUND(AVG(fare_amount)::numeric, 2) AS avg_fare
-FROM public.yellow_tripdata_2023_01 yt
+FROM {{ ref('stg_yellow_tripdata')}}
 GROUP BY 1
 ORDER BY 1
