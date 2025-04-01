@@ -1,0 +1,41 @@
+[2025-04-01T18:39:52.248+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_dbt_models.dbt_run manual__2025-04-01T18:38:38.675555+00:00 [queued]>
+[2025-04-01T18:39:52.266+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_dbt_models.dbt_run manual__2025-04-01T18:38:38.675555+00:00 [queued]>
+[2025-04-01T18:39:52.267+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2025-04-01T18:39:52.313+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2025-04-01 18:38:38.675555+00:00
+[2025-04-01T18:39:52.317+0000] {standard_task_runner.py:60} INFO - Started process 96 to run task
+[2025-04-01T18:39:52.320+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_dbt_models', 'dbt_run', 'manual__2025-04-01T18:38:38.675555+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/dbt_run_dag.py', '--cfg-path', '/tmp/tmpjuyfurpa']
+[2025-04-01T18:39:52.322+0000] {standard_task_runner.py:88} INFO - Job 15: Subtask dbt_run
+[2025-04-01T18:39:52.367+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-04-01T18:39:52.438+0000] {task_command.py:423} INFO - Running <TaskInstance: run_dbt_models.dbt_run manual__2025-04-01T18:38:38.675555+00:00 [running]> on host 79c84511453b
+[2025-04-01T18:39:52.574+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bb' AIRFLOW_CTX_DAG_ID='run_dbt_models' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2025-04-01T18:38:38.675555+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-01T18:38:38.675555+00:00'
+[2025-04-01T18:39:52.575+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-01T18:39:52.576+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/dbt/nyc_taxi_analytics && dbt run']
+[2025-04-01T18:39:52.590+0000] {subprocess.py:86} INFO - Output:
+[2025-04-01T18:39:54.024+0000] {subprocess.py:93} INFO - [0m18:39:54  Running with dbt=1.8.7
+[2025-04-01T18:39:54.332+0000] {subprocess.py:93} INFO - [0m18:39:54  Registered adapter: postgres=1.8.2
+[2025-04-01T18:39:54.814+0000] {subprocess.py:93} INFO - [0m18:39:54  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-01T18:39:54.815+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2025-04-01T18:39:54.816+0000] {subprocess.py:93} INFO - - models.nyc_taxi_analytics.example
+[2025-04-01T18:39:55.035+0000] {subprocess.py:93} INFO - [0m18:39:55  Found 5 models, 11 data tests, 423 macros
+[2025-04-01T18:39:55.039+0000] {subprocess.py:93} INFO - [0m18:39:55
+[2025-04-01T18:39:55.096+0000] {subprocess.py:93} INFO - [0m18:39:55
+[2025-04-01T18:39:55.097+0000] {subprocess.py:93} INFO - [0m18:39:55  Finished running  in 0 hours 0 minutes and 0.06 seconds (0.06s).
+[2025-04-01T18:39:55.098+0000] {subprocess.py:93} INFO - [0m18:39:55  Encountered an error:
+[2025-04-01T18:39:55.099+0000] {subprocess.py:93} INFO - Database Error
+[2025-04-01T18:39:55.100+0000] {subprocess.py:93} INFO -   connection to server at "localhost" (::1), port 5432 failed: Connection refused
+[2025-04-01T18:39:55.100+0000] {subprocess.py:93} INFO -   	Is the server running on that host and accepting TCP/IP connections?
+[2025-04-01T18:39:55.101+0000] {subprocess.py:93} INFO -   connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+[2025-04-01T18:39:55.102+0000] {subprocess.py:93} INFO -   	Is the server running on that host and accepting TCP/IP connections?
+[2025-04-01T18:39:55.102+0000] {subprocess.py:93} INFO - 
+[2025-04-01T18:39:56.761+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-04-01T18:39:56.780+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-04-01T18:39:56.785+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=run_dbt_models, task_id=dbt_run, execution_date=20250401T183838, start_date=20250401T183952, end_date=20250401T183956
+[2025-04-01T18:39:56.824+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 15 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 96)
+[2025-04-01T18:39:56.836+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-01T18:39:56.865+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,59 @@
+[0m18:00:34.238980 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FE2EFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FE2F210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FE2F110>]}
+
+
+============================== 18:00:34.266274 | 99814f95-ca3a-4d01-8430-6a99371aae85 ==============================
+[0m18:00:34.266274 [info ] [MainThread]: Running with dbt=1.9.3
+[0m18:00:34.267310 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\acesk\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init nyc_taxi_analytics', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:00:34.404939 [debug] [MainThread]: Starter project path: C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\include\starter_project
+[0m18:00:34.447795 [info ] [MainThread]: 
+Your new dbt project "nyc_taxi_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:00:34.448803 [info ] [MainThread]: Setting up your profile.
+[0m18:04:54.624895 [error] [MainThread]: Encountered an error:
+
+[0m18:04:54.628529 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\cli\main.py", line 477, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\acesk\nyc-taxi-pipeline\.venv\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m18:04:54.630707 [debug] [MainThread]: Command `dbt init` failed at 18:04:54.630707 after 260.47 seconds
+[0m18:04:54.630707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FE835D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FB06250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276FE2EB10>]}
+[0m18:04:54.632226 [debug] [MainThread]: Flushing usage events
+[0m18:04:55.905100 [debug] [MainThread]: An error was encountered while trying to flush usage events

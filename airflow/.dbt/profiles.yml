@@ -1,0 +1,14 @@
+nyc_taxi_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: admin
+      password: admin
+      port: 5432
+      dbname: nyc_taxi
+      schema: public
+      threads: 1
+      keepalives_idle: 0
+      sslmode: prefer
