@@ -1,0 +1,42 @@
+[2025-04-02T14:47:05.135+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_dbt_models.dbt_run manual__2025-04-02T14:47:00.305528+00:00 [queued]>
+[2025-04-02T14:47:05.151+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_dbt_models.dbt_run manual__2025-04-02T14:47:00.305528+00:00 [queued]>
+[2025-04-02T14:47:05.151+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-04-02T14:47:05.197+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2025-04-02 14:47:00.305528+00:00
+[2025-04-02T14:47:05.201+0000] {standard_task_runner.py:60} INFO - Started process 66 to run task
+[2025-04-02T14:47:05.203+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'run_dbt_models', 'dbt_run', 'manual__2025-04-02T14:47:00.305528+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/dbt_run_dag.py', '--cfg-path', '/tmp/tmpwc0qxxoz']
+[2025-04-02T14:47:05.205+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask dbt_run
+[2025-04-02T14:47:05.268+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-04-02T14:47:05.354+0000] {task_command.py:423} INFO - Running <TaskInstance: run_dbt_models.dbt_run manual__2025-04-02T14:47:00.305528+00:00 [running]> on host fa7c7b58f210
+[2025-04-02T14:47:05.574+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bb' AIRFLOW_CTX_DAG_ID='run_dbt_models' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2025-04-02T14:47:00.305528+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-02T14:47:00.305528+00:00'
+[2025-04-02T14:47:05.576+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-02T14:47:05.577+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/dbt/nyc_taxi_analytics && dbt run']
+[2025-04-02T14:47:05.584+0000] {subprocess.py:86} INFO - Output:
+[2025-04-02T14:47:07.586+0000] {subprocess.py:93} INFO - [0m14:47:07  Running with dbt=1.8.7
+[2025-04-02T14:47:07.990+0000] {subprocess.py:93} INFO - [0m14:47:07  Registered adapter: postgres=1.8.2
+[2025-04-02T14:47:08.789+0000] {subprocess.py:93} INFO - [0m14:47:08  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-04-02T14:47:08.790+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2025-04-02T14:47:08.790+0000] {subprocess.py:93} INFO - - models.nyc_taxi_analytics.example
+[2025-04-02T14:47:08.991+0000] {subprocess.py:93} INFO - [0m14:47:08  Found 5 models, 11 data tests, 423 macros
+[2025-04-02T14:47:08.993+0000] {subprocess.py:93} INFO - [0m14:47:08
+[2025-04-02T14:47:09.145+0000] {subprocess.py:93} INFO - [0m14:47:09  Concurrency: 1 threads (target='dev')
+[2025-04-02T14:47:09.146+0000] {subprocess.py:93} INFO - [0m14:47:09
+[2025-04-02T14:47:09.153+0000] {subprocess.py:93} INFO - [0m14:47:09  1 of 5 START sql view model public.stg_yellow_tripdata ......................... [RUN]
+[2025-04-02T14:47:09.353+0000] {subprocess.py:93} INFO - [0m14:47:09  1 of 5 OK created sql view model public.stg_yellow_tripdata .................... [[32mCREATE VIEW[0m in 0.20s]
+[2025-04-02T14:47:09.357+0000] {subprocess.py:93} INFO - [0m14:47:09  2 of 5 START sql view model public.avg_trip_dist_by_payment .................... [RUN]
+[2025-04-02T14:47:09.428+0000] {subprocess.py:93} INFO - [0m14:47:09  2 of 5 OK created sql view model public.avg_trip_dist_by_payment ............... [[32mCREATE VIEW[0m in 0.07s]
+[2025-04-02T14:47:09.431+0000] {subprocess.py:93} INFO - [0m14:47:09  3 of 5 START sql view model public.daily_trip_metrics .......................... [RUN]
+[2025-04-02T14:47:09.497+0000] {subprocess.py:93} INFO - [0m14:47:09  3 of 5 OK created sql view model public.daily_trip_metrics ..................... [[32mCREATE VIEW[0m in 0.06s]
+[2025-04-02T14:47:09.500+0000] {subprocess.py:93} INFO - [0m14:47:09  4 of 5 START sql view model public.revenue_by_vendor ........................... [RUN]
+[2025-04-02T14:47:09.669+0000] {subprocess.py:93} INFO - [0m14:47:09  4 of 5 OK created sql view model public.revenue_by_vendor ...................... [[32mCREATE VIEW[0m in 0.17s]
+[2025-04-02T14:47:09.674+0000] {subprocess.py:93} INFO - [0m14:47:09  5 of 5 START sql view model public.trip_by_weekday ............................. [RUN]
+[2025-04-02T14:47:09.832+0000] {subprocess.py:93} INFO - [0m14:47:09  5 of 5 OK created sql view model public.trip_by_weekday ........................ [[32mCREATE VIEW[0m in 0.15s]
+[2025-04-02T14:47:09.851+0000] {subprocess.py:93} INFO - [0m14:47:09
+[2025-04-02T14:47:09.852+0000] {subprocess.py:93} INFO - [0m14:47:09  Finished running 5 view models in 0 hours 0 minutes and 0.86 seconds (0.86s).
+[2025-04-02T14:47:09.983+0000] {subprocess.py:93} INFO - [0m14:47:09
+[2025-04-02T14:47:09.985+0000] {subprocess.py:93} INFO - [0m14:47:09  [32mCompleted successfully[0m
+[2025-04-02T14:47:09.986+0000] {subprocess.py:93} INFO - [0m14:47:09
+[2025-04-02T14:47:09.991+0000] {subprocess.py:93} INFO - [0m14:47:09  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2025-04-02T14:47:11.507+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-04-02T14:47:11.605+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=run_dbt_models, task_id=dbt_run, execution_date=20250402T144700, start_date=20250402T144705, end_date=20250402T144711
+[2025-04-02T14:47:11.678+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-04-02T14:47:11.707+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

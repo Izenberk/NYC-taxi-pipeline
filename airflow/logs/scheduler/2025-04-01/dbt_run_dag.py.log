@@ -3297,3 +3297,24 @@ SyntaxError: invalid syntax
 [2025-04-01T20:07:26.722+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:07:26.722+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-04-01T20:07:26.739+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:07:26.739+0000] {dag.py:3823} INFO - Setting next_dagrun for run_dbt_models to None, run_after=None
 [2025-04-01T20:07:26.835+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt_run_dag.py took 0.195 seconds
+[2025-04-01T20:07:57.996+0000] {processor.py:161} INFO - Started process (PID=313) to work on /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:07:57.999+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt_run_dag.py for tasks to queue
+[2025-04-01T20:07:58.001+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:07:58.001+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:07:58.169+0000] {processor.py:840} INFO - DAG(s) 'run_dbt_models' retrieved from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:07:58.231+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:07:58.230+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-04-01T20:07:58.254+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:07:58.252+0000] {dag.py:3823} INFO - Setting next_dagrun for run_dbt_models to None, run_after=None
+[2025-04-01T20:07:58.386+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt_run_dag.py took 0.395 seconds
+[2025-04-01T20:08:28.870+0000] {processor.py:161} INFO - Started process (PID=314) to work on /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:28.872+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt_run_dag.py for tasks to queue
+[2025-04-01T20:08:28.873+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:28.873+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:28.895+0000] {processor.py:840} INFO - DAG(s) 'run_dbt_models' retrieved from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:28.924+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:28.923+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-04-01T20:08:28.950+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:28.950+0000] {dag.py:3823} INFO - Setting next_dagrun for run_dbt_models to None, run_after=None
+[2025-04-01T20:08:29.008+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt_run_dag.py took 0.141 seconds
+[2025-04-01T20:08:59.834+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:59.836+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dbt_run_dag.py for tasks to queue
+[2025-04-01T20:08:59.838+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:59.837+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:59.866+0000] {processor.py:840} INFO - DAG(s) 'run_dbt_models' retrieved from /opt/airflow/dags/dbt_run_dag.py
+[2025-04-01T20:08:59.904+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:59.904+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-04-01T20:08:59.916+0000] {logging_mixin.py:188} INFO - [2025-04-01T20:08:59.916+0000] {dag.py:3823} INFO - Setting next_dagrun for run_dbt_models to None, run_after=None
+[2025-04-01T20:09:00.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dbt_run_dag.py took 0.251 seconds

@@ -77,7 +77,10 @@ services:
       - _AIRFLOW_WWW_USER_LASTNAME=Engineer
     volumes:
       - ./airflow:/opt/airflow
-      - ./airflow/.dbt:/home/airflow/.dbt
+      - ./airflow/.dbt:/home/airflow/.dbt   # dbt profiles
+      - ./dbt:/dbt                          # dbt project files
+      - ./pipeline:/opt/pipeline            # ✅ mount your dev package directly
+      - ./data:/opt/data
     command: bash -c "airflow db init && airflow users create \
       --username $$'_AIRFLOW_WWW_USER_USERNAME' \
       --firstname $$'_AIRFLOW_WWW_USER_FIRSTNAME' \
@@ -104,7 +107,10 @@ services:
       - "8082:8080"
     volumes:
       - ./airflow:/opt/airflow
-      - ./airflow/.dbt:/home/airflow/.dbt
+      - ./airflow/.dbt:/home/airflow/.dbt   # dbt profiles
+      - ./dbt:/dbt                          # dbt project files
+      - ./pipeline:/opt/pipeline            # ✅ mount your dev package directly
+      - ./data:/opt/data
     command: webserver
     networks:
       - shared-net
@@ -122,7 +128,10 @@ services:
       - AIRFLOW__CORE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
     volumes:
       - ./airflow:/opt/airflow
-      - ./airflow/.dbt:/home/airflow/.dbt
+      - ./airflow/.dbt:/home/airflow/.dbt   # dbt profiles
+      - ./dbt:/dbt                          # dbt project files
+      - ./pipeline:/opt/pipeline            # ✅ mount your dev package directly
+      - ./data:/opt/data
     command: scheduler
     networks:
       - shared-net
