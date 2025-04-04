@@ -1,0 +1,277 @@
+[2025-04-04T05:07:42.496+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T05:06:54.466928+00:00 [queued]>
+[2025-04-04T05:07:42.526+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T05:06:54.466928+00:00 [queued]>
+[2025-04-04T05:07:42.527+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-04-04T05:07:42.575+0000] {taskinstance.py:2191} INFO - Executing <Task(SparkSubmitOperator): clean_data_spark> on 2025-04-04 05:06:54.466928+00:00
+[2025-04-04T05:07:42.580+0000] {standard_task_runner.py:60} INFO - Started process 106 to run task
+[2025-04-04T05:07:42.586+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'full_pipeline_dag', 'clean_data_spark', 'manual__2025-04-04T05:06:54.466928+00:00', '--job-id', '260', '--raw', '--subdir', 'DAGS_FOLDER/full_pipeline_dag.py', '--cfg-path', '/tmp/tmpu9su2rzi']
+[2025-04-04T05:07:42.591+0000] {standard_task_runner.py:88} INFO - Job 260: Subtask clean_data_spark
+[2025-04-04T05:07:42.651+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-04-04T05:07:42.748+0000] {task_command.py:423} INFO - Running <TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T05:06:54.466928+00:00 [running]> on host 33d154a2f98d
+[2025-04-04T05:07:42.984+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='full_pipeline_dag' AIRFLOW_CTX_TASK_ID='clean_data_spark' AIRFLOW_CTX_EXECUTION_DATE='2025-04-04T05:06:54.466928+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-04T05:06:54.466928+00:00'
+[2025-04-04T05:07:43.025+0000] {base.py:83} INFO - Using connection ID 'spark_default' for task execution.
+[2025-04-04T05:07:43.029+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,/opt/spark-extra-jars/hadoop-common-3.3.6.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T05:07:45.173+0000] {spark_submit.py:649} INFO - Using properties file: null
+[2025-04-04T05:07:45.287+0000] {spark_submit.py:649} INFO - Parsed arguments:
+[2025-04-04T05:07:45.287+0000] {spark_submit.py:649} INFO - master                  spark://spark-master:7077
+[2025-04-04T05:07:45.288+0000] {spark_submit.py:649} INFO - remote                  null
+[2025-04-04T05:07:45.289+0000] {spark_submit.py:649} INFO - deployMode              client
+[2025-04-04T05:07:45.289+0000] {spark_submit.py:649} INFO - executorMemory          null
+[2025-04-04T05:07:45.290+0000] {spark_submit.py:649} INFO - executorCores           null
+[2025-04-04T05:07:45.290+0000] {spark_submit.py:649} INFO - totalExecutorCores      null
+[2025-04-04T05:07:45.291+0000] {spark_submit.py:649} INFO - propertiesFile          null
+[2025-04-04T05:07:45.291+0000] {spark_submit.py:649} INFO - driverMemory            null
+[2025-04-04T05:07:45.292+0000] {spark_submit.py:649} INFO - driverCores             null
+[2025-04-04T05:07:45.292+0000] {spark_submit.py:649} INFO - driverExtraClassPath    null
+[2025-04-04T05:07:45.293+0000] {spark_submit.py:649} INFO - driverExtraLibraryPath  null
+[2025-04-04T05:07:45.293+0000] {spark_submit.py:649} INFO - driverExtraJavaOptions  null
+[2025-04-04T05:07:45.294+0000] {spark_submit.py:649} INFO - supervise               false
+[2025-04-04T05:07:45.295+0000] {spark_submit.py:649} INFO - queue                   root.default
+[2025-04-04T05:07:45.295+0000] {spark_submit.py:649} INFO - numExecutors            null
+[2025-04-04T05:07:45.296+0000] {spark_submit.py:649} INFO - files                   null
+[2025-04-04T05:07:45.297+0000] {spark_submit.py:649} INFO - pyFiles                 null
+[2025-04-04T05:07:45.297+0000] {spark_submit.py:649} INFO - archives                null
+[2025-04-04T05:07:45.298+0000] {spark_submit.py:649} INFO - mainClass               null
+[2025-04-04T05:07:45.298+0000] {spark_submit.py:649} INFO - primaryResource         file:/opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T05:07:45.299+0000] {spark_submit.py:649} INFO - name                    arrow-spark
+[2025-04-04T05:07:45.299+0000] {spark_submit.py:649} INFO - childArgs               []
+[2025-04-04T05:07:45.300+0000] {spark_submit.py:649} INFO - jars                    file:/opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,file:/opt/spark-extra-jars/hadoop-common-3.3.6.jar
+[2025-04-04T05:07:45.300+0000] {spark_submit.py:649} INFO - packages                null
+[2025-04-04T05:07:45.301+0000] {spark_submit.py:649} INFO - packagesExclusions      null
+[2025-04-04T05:07:45.302+0000] {spark_submit.py:649} INFO - repositories            null
+[2025-04-04T05:07:45.302+0000] {spark_submit.py:649} INFO - verbose                 true
+[2025-04-04T05:07:45.303+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:45.303+0000] {spark_submit.py:649} INFO - Spark properties used, including those specified through
+[2025-04-04T05:07:45.304+0000] {spark_submit.py:649} INFO - --conf and those from the properties file null:
+[2025-04-04T05:07:45.304+0000] {spark_submit.py:649} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-04-04T05:07:45.305+0000] {spark_submit.py:649} INFO - (spark.master,spark://spark-master:7077)
+[2025-04-04T05:07:45.305+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:45.306+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:45.812+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-04T05:07:46.039+0000] {spark_submit.py:649} INFO - Main class:
+[2025-04-04T05:07:46.040+0000] {spark_submit.py:649} INFO - org.apache.spark.deploy.PythonRunner
+[2025-04-04T05:07:46.040+0000] {spark_submit.py:649} INFO - Arguments:
+[2025-04-04T05:07:46.041+0000] {spark_submit.py:649} INFO - file:/opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T05:07:46.042+0000] {spark_submit.py:649} INFO - null
+[2025-04-04T05:07:46.043+0000] {spark_submit.py:649} INFO - Spark config:
+[2025-04-04T05:07:46.043+0000] {spark_submit.py:649} INFO - (spark.app.name,arrow-spark)
+[2025-04-04T05:07:46.044+0000] {spark_submit.py:649} INFO - (spark.app.submitTime,1743743266023)
+[2025-04-04T05:07:46.044+0000] {spark_submit.py:649} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-04-04T05:07:46.044+0000] {spark_submit.py:649} INFO - (spark.jars,file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,file:///opt/spark-extra-jars/hadoop-common-3.3.6.jar)
+[2025-04-04T05:07:46.045+0000] {spark_submit.py:649} INFO - (spark.master,spark://spark-master:7077)
+[2025-04-04T05:07:46.045+0000] {spark_submit.py:649} INFO - (spark.repl.local.jars,file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,file:///opt/spark-extra-jars/hadoop-common-3.3.6.jar)
+[2025-04-04T05:07:46.046+0000] {spark_submit.py:649} INFO - (spark.submit.deployMode,client)
+[2025-04-04T05:07:46.046+0000] {spark_submit.py:649} INFO - (spark.submit.pyFiles,)
+[2025-04-04T05:07:46.047+0000] {spark_submit.py:649} INFO - Classpath elements:
+[2025-04-04T05:07:46.047+0000] {spark_submit.py:649} INFO - file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar
+[2025-04-04T05:07:46.048+0000] {spark_submit.py:649} INFO - file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar
+[2025-04-04T05:07:46.048+0000] {spark_submit.py:649} INFO - file:///opt/spark-extra-jars/hadoop-common-3.3.6.jar
+[2025-04-04T05:07:46.049+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:46.049+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:48.272+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkContext: Running Spark version 3.5.0
+[2025-04-04T05:07:48.273+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-04-04T05:07:48.274+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkContext: Java version 17.0.14
+[2025-04-04T05:07:48.308+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceUtils: ==============================================================
+[2025-04-04T05:07:48.309+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-04-04T05:07:48.309+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceUtils: ==============================================================
+[2025-04-04T05:07:48.310+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkContext: Submitted application: CleanYellowData
+[2025-04-04T05:07:48.339+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-04-04T05:07:48.348+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceProfile: Limiting resource is cpu
+[2025-04-04T05:07:48.350+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-04-04T05:07:48.455+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SecurityManager: Changing view acls to: airflow
+[2025-04-04T05:07:48.456+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SecurityManager: Changing modify acls to: airflow
+[2025-04-04T05:07:48.457+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SecurityManager: Changing view acls groups to:
+[2025-04-04T05:07:48.458+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SecurityManager: Changing modify acls groups to:
+[2025-04-04T05:07:48.458+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+[2025-04-04T05:07:48.761+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO Utils: Successfully started service 'sparkDriver' on port 40375.
+[2025-04-04T05:07:48.828+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkEnv: Registering MapOutputTracker
+[2025-04-04T05:07:48.869+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkEnv: Registering BlockManagerMaster
+[2025-04-04T05:07:48.887+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-04-04T05:07:48.888+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-04-04T05:07:48.895+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-04-04T05:07:48.919+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-a56de189-c88e-4c36-858b-6242e891d05c
+[2025-04-04T05:07:48.931+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-04-04T05:07:48.954+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:48 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-04-04T05:07:49.104+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-04-04T05:07:49.177+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-04-04T05:07:49.227+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO SparkContext: Added JAR file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar at spark://33d154a2f98d:40375/jars/hadoop-aws-3.3.6.jar with timestamp 1743743268263
+[2025-04-04T05:07:49.228+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO SparkContext: Added JAR file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar at spark://33d154a2f98d:40375/jars/aws-java-sdk-bundle-1.12.696.jar with timestamp 1743743268263
+[2025-04-04T05:07:49.229+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO SparkContext: Added JAR file:///opt/spark-extra-jars/hadoop-common-3.3.6.jar at spark://33d154a2f98d:40375/jars/hadoop-common-3.3.6.jar with timestamp 1743743268263
+[2025-04-04T05:07:49.336+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-04-04T05:07:49.387+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO TransportClientFactory: Successfully created connection to spark-master/172.24.0.5:7077 after 25 ms (0 ms spent in bootstraps)
+[2025-04-04T05:07:49.607+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250404050749-0000
+[2025-04-04T05:07:49.624+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41769.
+[2025-04-04T05:07:49.625+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO NettyBlockTransferService: Server created on 33d154a2f98d:41769
+[2025-04-04T05:07:49.628+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-04-04T05:07:49.637+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 33d154a2f98d, 41769, None)
+[2025-04-04T05:07:49.639+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250404050749-0000/0 on worker-20250404050532-172.24.0.8-41915 (172.24.0.8:41915) with 2 core(s)
+[2025-04-04T05:07:49.641+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneSchedulerBackend: Granted executor ID app-20250404050749-0000/0 on hostPort 172.24.0.8:41915 with 2 core(s), 1024.0 MiB RAM
+[2025-04-04T05:07:49.641+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO BlockManagerMasterEndpoint: Registering block manager 33d154a2f98d:41769 with 434.4 MiB RAM, BlockManagerId(driver, 33d154a2f98d, 41769, None)
+[2025-04-04T05:07:49.645+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 33d154a2f98d, 41769, None)
+[2025-04-04T05:07:49.646+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 33d154a2f98d, 41769, None)
+[2025-04-04T05:07:49.838+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250404050749-0000/0 is now RUNNING
+[2025-04-04T05:07:49.937+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:49 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-04-04T05:07:50.210+0000] {spark_submit.py:649} INFO - ✅ Spark session received from DAG
+[2025-04-04T05:07:50.211+0000] {spark_submit.py:649} INFO - 📥 Reading raw data...
+[2025-04-04T05:07:50.218+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:50 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-04-04T05:07:50.220+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:50 INFO SharedState: Warehouse path is 'file:/opt/airflow/spark-warehouse'.
+[2025-04-04T05:07:52.004+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:52 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-04-04T05:07:52.020+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:52 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+[2025-04-04T05:07:52.020+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:52 INFO MetricsSystemImpl: s3a-file-system metrics system started
+[2025-04-04T05:07:53.207+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:53 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.24.0.8:53620) with ID 0,  ResourceProfileId 0
+[2025-04-04T05:07:53.330+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:53 INFO BlockManagerMasterEndpoint: Registering block manager 172.24.0.8:43945 with 434.4 MiB RAM, BlockManagerId(0, 172.24.0.8, 43945, None)
+[2025-04-04T05:07:56.007+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:56 WARN FileStreamSink: Assume no metadata directory. Error while looking for metadata directory in the path: s3a://nyc-taxi/raw/yellow_tripdata_2023-01.parquet.
+[2025-04-04T05:07:56.009+0000] {spark_submit.py:649} INFO - java.nio.file.AccessDeniedException: s3a://nyc-taxi/raw/yellow_tripdata_2023-01.parquet: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by TemporaryAWSCredentialsProvider SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider IAMInstanceCredentialsProvider : com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:56.009+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:215)
+[2025-04-04T05:07:56.010+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:174)
+[2025-04-04T05:07:56.010+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3796)
+[2025-04-04T05:07:56.011+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3652)
+[2025-04-04T05:07:56.011+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$isDirectory$35(S3AFileSystem.java:4657)
+[2025-04-04T05:07:56.012+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:499)
+[2025-04-04T05:07:56.013+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.trackDuration(IOStatisticsBinding.java:444)
+[2025-04-04T05:07:56.013+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2480)
+[2025-04-04T05:07:56.014+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2499)
+[2025-04-04T05:07:56.014+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.isDirectory(S3AFileSystem.java:4655)
+[2025-04-04T05:07:56.015+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.streaming.FileStreamSink$.hasMetadata(FileStreamSink.scala:54)
+[2025-04-04T05:07:56.015+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:366)
+[2025-04-04T05:07:56.016+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2025-04-04T05:07:56.017+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2025-04-04T05:07:56.017+0000] {spark_submit.py:649} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2025-04-04T05:07:56.018+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2025-04-04T05:07:56.018+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.parquet(DataFrameReader.scala:563)
+[2025-04-04T05:07:56.019+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-04-04T05:07:56.019+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-04-04T05:07:56.020+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-04-04T05:07:56.021+0000] {spark_submit.py:649} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-04-04T05:07:56.021+0000] {spark_submit.py:649} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-04-04T05:07:56.022+0000] {spark_submit.py:649} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-04-04T05:07:56.022+0000] {spark_submit.py:649} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-04-04T05:07:56.023+0000] {spark_submit.py:649} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-04-04T05:07:56.023+0000] {spark_submit.py:649} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-04-04T05:07:56.024+0000] {spark_submit.py:649} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-04-04T05:07:56.024+0000] {spark_submit.py:649} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-04-04T05:07:56.025+0000] {spark_submit.py:649} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-04T05:07:56.025+0000] {spark_submit.py:649} INFO - Caused by: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by TemporaryAWSCredentialsProvider SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider IAMInstanceCredentialsProvider : com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:56.026+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:216)
+[2025-04-04T05:07:56.026+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.getCredentialsFromContext(AmazonHttpClient.java:1269)
+[2025-04-04T05:07:56.026+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.runBeforeRequestHandlers(AmazonHttpClient.java:845)
+[2025-04-04T05:07:56.027+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:794)
+[2025-04-04T05:07:56.027+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:781)
+[2025-04-04T05:07:56.028+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:755)
+[2025-04-04T05:07:56.028+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:715)
+[2025-04-04T05:07:56.029+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:697)
+[2025-04-04T05:07:56.029+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:561)
+[2025-04-04T05:07:56.029+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:541)
+[2025-04-04T05:07:56.030+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5558)
+[2025-04-04T05:07:56.031+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.getBucketRegionViaHeadRequest(AmazonS3Client.java:6539)
+[2025-04-04T05:07:56.031+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.fetchRegionFromCache(AmazonS3Client.java:6511)
+[2025-04-04T05:07:56.032+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5543)
+[2025-04-04T05:07:56.032+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5505)
+[2025-04-04T05:07:56.033+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.listObjectsV2(AmazonS3Client.java:1002)
+[2025-04-04T05:07:56.035+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$listObjects$12(S3AFileSystem.java:2715)
+[2025-04-04T05:07:56.036+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:499)
+[2025-04-04T05:07:56.037+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2025-04-04T05:07:56.038+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2025-04-04T05:07:56.039+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.listObjects(S3AFileSystem.java:2706)
+[2025-04-04T05:07:56.040+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3768)
+[2025-04-04T05:07:56.041+0000] {spark_submit.py:649} INFO - ... 26 more
+[2025-04-04T05:07:56.042+0000] {spark_submit.py:649} INFO - Caused by: com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:56.043+0000] {spark_submit.py:649} INFO - at com.amazonaws.auth.EnvironmentVariableCredentialsProvider.getCredentials(EnvironmentVariableCredentialsProvider.java:49)
+[2025-04-04T05:07:56.044+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:177)
+[2025-04-04T05:07:56.044+0000] {spark_submit.py:649} INFO - ... 47 more
+[2025-04-04T05:07:58.147+0000] {spark_submit.py:649} INFO - Traceback (most recent call last):
+[2025-04-04T05:07:58.148+0000] {spark_submit.py:649} INFO - File "/opt/spark-app/clean_yellow_tripdata.py", line 9, in <module>
+[2025-04-04T05:07:58.152+0000] {spark_submit.py:649} INFO - clean_yellow_tripdata(spark)
+[2025-04-04T05:07:58.152+0000] {spark_submit.py:649} INFO - File "/opt/pipeline/transform/clean_yellow_tripdata.py", line 9, in clean_yellow_tripdata
+[2025-04-04T05:07:58.156+0000] {spark_submit.py:649} INFO - df = spark.read.parquet(raw_path)
+[2025-04-04T05:07:58.157+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 544, in parquet
+[2025-04-04T05:07:58.157+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-04-04T05:07:58.158+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2025-04-04T05:07:58.159+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2025-04-04T05:07:58.161+0000] {spark_submit.py:649} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o27.parquet.
+[2025-04-04T05:07:58.162+0000] {spark_submit.py:649} INFO - : java.nio.file.AccessDeniedException: s3a://nyc-taxi/raw/yellow_tripdata_2023-01.parquet: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by TemporaryAWSCredentialsProvider SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider IAMInstanceCredentialsProvider : com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:58.162+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:215)
+[2025-04-04T05:07:58.163+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:174)
+[2025-04-04T05:07:58.163+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3749)
+[2025-04-04T05:07:58.164+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:3652)
+[2025-04-04T05:07:58.165+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$exists$34(S3AFileSystem.java:4636)
+[2025-04-04T05:07:58.165+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:499)
+[2025-04-04T05:07:58.166+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.trackDuration(IOStatisticsBinding.java:444)
+[2025-04-04T05:07:58.166+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2480)
+[2025-04-04T05:07:58.167+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2499)
+[2025-04-04T05:07:58.168+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.exists(S3AFileSystem.java:4634)
+[2025-04-04T05:07:58.168+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.datasources.DataSource$.$anonfun$checkAndGlobPathIfNecessary$4(DataSource.scala:756)
+[2025-04-04T05:07:58.169+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.datasources.DataSource$.$anonfun$checkAndGlobPathIfNecessary$4$adapted(DataSource.scala:754)
+[2025-04-04T05:07:58.169+0000] {spark_submit.py:649} INFO - at org.apache.spark.util.ThreadUtils$.$anonfun$parmap$2(ThreadUtils.scala:380)
+[2025-04-04T05:07:58.170+0000] {spark_submit.py:649} INFO - at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+[2025-04-04T05:07:58.171+0000] {spark_submit.py:649} INFO - at scala.util.Success.$anonfun$map$1(Try.scala:255)
+[2025-04-04T05:07:58.171+0000] {spark_submit.py:649} INFO - at scala.util.Success.map(Try.scala:213)
+[2025-04-04T05:07:58.172+0000] {spark_submit.py:649} INFO - at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+[2025-04-04T05:07:58.173+0000] {spark_submit.py:649} INFO - at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+[2025-04-04T05:07:58.174+0000] {spark_submit.py:649} INFO - at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+[2025-04-04T05:07:58.174+0000] {spark_submit.py:649} INFO - at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+[2025-04-04T05:07:58.175+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395)
+[2025-04-04T05:07:58.176+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+[2025-04-04T05:07:58.176+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+[2025-04-04T05:07:58.176+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+[2025-04-04T05:07:58.177+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+[2025-04-04T05:07:58.177+0000] {spark_submit.py:649} INFO - at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+[2025-04-04T05:07:58.178+0000] {spark_submit.py:649} INFO - Caused by: org.apache.hadoop.fs.s3a.auth.NoAuthWithAWSException: No AWS Credentials provided by TemporaryAWSCredentialsProvider SimpleAWSCredentialsProvider EnvironmentVariableCredentialsProvider IAMInstanceCredentialsProvider : com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:58.178+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:216)
+[2025-04-04T05:07:58.178+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.getCredentialsFromContext(AmazonHttpClient.java:1269)
+[2025-04-04T05:07:58.179+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.runBeforeRequestHandlers(AmazonHttpClient.java:845)
+[2025-04-04T05:07:58.180+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:794)
+[2025-04-04T05:07:58.180+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:781)
+[2025-04-04T05:07:58.181+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:755)
+[2025-04-04T05:07:58.181+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:715)
+[2025-04-04T05:07:58.182+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:697)
+[2025-04-04T05:07:58.182+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:561)
+[2025-04-04T05:07:58.182+0000] {spark_submit.py:649} INFO - at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:541)
+[2025-04-04T05:07:58.183+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5558)
+[2025-04-04T05:07:58.183+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.getBucketRegionViaHeadRequest(AmazonS3Client.java:6539)
+[2025-04-04T05:07:58.183+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.fetchRegionFromCache(AmazonS3Client.java:6511)
+[2025-04-04T05:07:58.184+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5543)
+[2025-04-04T05:07:58.184+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:5505)
+[2025-04-04T05:07:58.185+0000] {spark_submit.py:649} INFO - at com.amazonaws.services.s3.AmazonS3Client.getObjectMetadata(AmazonS3Client.java:1403)
+[2025-04-04T05:07:58.185+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$getObjectMetadata$11(S3AFileSystem.java:2665)
+[2025-04-04T05:07:58.186+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2025-04-04T05:07:58.186+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2025-04-04T05:07:58.187+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:2653)
+[2025-04-04T05:07:58.187+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:2633)
+[2025-04-04T05:07:58.188+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:3724)
+[2025-04-04T05:07:58.188+0000] {spark_submit.py:649} INFO - ... 23 more
+[2025-04-04T05:07:58.188+0000] {spark_submit.py:649} INFO - Caused by: com.amazonaws.SdkClientException: Unable to load AWS credentials from environment variables (AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY) and AWS_SECRET_KEY (or AWS_SECRET_ACCESS_KEY))
+[2025-04-04T05:07:58.189+0000] {spark_submit.py:649} INFO - at com.amazonaws.auth.EnvironmentVariableCredentialsProvider.getCredentials(EnvironmentVariableCredentialsProvider.java:49)
+[2025-04-04T05:07:58.189+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.AWSCredentialProviderList.getCredentials(AWSCredentialProviderList.java:177)
+[2025-04-04T05:07:58.189+0000] {spark_submit.py:649} INFO - ... 44 more
+[2025-04-04T05:07:58.190+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T05:07:58.204+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO SparkContext: Invoking stop() from shutdown hook
+[2025-04-04T05:07:58.205+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-04-04T05:07:58.213+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO SparkUI: Stopped Spark web UI at http://33d154a2f98d:4040
+[2025-04-04T05:07:58.216+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-04-04T05:07:58.217+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-04-04T05:07:58.236+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-04-04T05:07:58.259+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO MemoryStore: MemoryStore cleared
+[2025-04-04T05:07:58.260+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO BlockManager: BlockManager stopped
+[2025-04-04T05:07:58.268+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-04-04T05:07:58.272+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-04-04T05:07:58.294+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO SparkContext: Successfully stopped SparkContext
+[2025-04-04T05:07:58.295+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO ShutdownHookManager: Shutdown hook called
+[2025-04-04T05:07:58.296+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-7c8a6764-a721-4820-9b69-1a6a74b03f81
+[2025-04-04T05:07:58.307+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-7c8a6764-a721-4820-9b69-1a6a74b03f81/pyspark-5c83bd6b-d6d0-43bc-af4d-aa14c8f24624
+[2025-04-04T05:07:58.314+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-fb601f1e-5d54-4e64-a8d3-f74bd2b0c310
+[2025-04-04T05:07:58.326+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO MetricsSystemImpl: Stopping s3a-file-system metrics system...
+[2025-04-04T05:07:58.327+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO MetricsSystemImpl: s3a-file-system metrics system stopped.
+[2025-04-04T05:07:58.328+0000] {spark_submit.py:649} INFO - 25/04/04 05:07:58 INFO MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+[2025-04-04T05:07:58.705+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 176, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 575, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,/opt/spark-extra-jars/hadoop-common-3.3.6.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py. Error code is: 1.
+[2025-04-04T05:07:58.720+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=full_pipeline_dag, task_id=clean_data_spark, execution_date=20250404T050654, start_date=20250404T050742, end_date=20250404T050758
+[2025-04-04T05:07:58.982+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 260 for task clean_data_spark (Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar,/opt/spark-extra-jars/hadoop-common-3.3.6.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py. Error code is: 1.; 106)
+[2025-04-04T05:07:59.022+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-04T05:07:59.073+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

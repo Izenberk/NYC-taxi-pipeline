@@ -1,0 +1,63 @@
+[2025-04-03T09:23:04.539+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: full_pipeline_dag.download_data_parquet manual__2025-04-03T09:23:00.054450+00:00 [queued]>
+[2025-04-03T09:23:04.564+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: full_pipeline_dag.download_data_parquet manual__2025-04-03T09:23:00.054450+00:00 [queued]>
+[2025-04-03T09:23:04.564+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-04-03T09:23:04.605+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): download_data_parquet> on 2025-04-03 09:23:00.054450+00:00
+[2025-04-03T09:23:04.609+0000] {standard_task_runner.py:60} INFO - Started process 57 to run task
+[2025-04-03T09:23:04.612+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'full_pipeline_dag', 'download_data_parquet', 'manual__2025-04-03T09:23:00.054450+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/full_pipeline_dag.py', '--cfg-path', '/tmp/tmp4fd20qtv']
+[2025-04-03T09:23:04.617+0000] {standard_task_runner.py:88} INFO - Job 132: Subtask download_data_parquet
+[2025-04-03T09:23:04.676+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-04-03T09:23:04.750+0000] {task_command.py:423} INFO - Running <TaskInstance: full_pipeline_dag.download_data_parquet manual__2025-04-03T09:23:00.054450+00:00 [running]> on host 4dcda4e458b5
+[2025-04-03T09:23:04.902+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='full_pipeline_dag' AIRFLOW_CTX_TASK_ID='download_data_parquet' AIRFLOW_CTX_EXECUTION_DATE='2025-04-03T09:23:00.054450+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-03T09:23:00.054450+00:00'
+[2025-04-03T09:23:04.927+0000] {logging_mixin.py:188} INFO - 📥 Downloading Parquet...
+[2025-04-03T09:27:09.251+0000] {local_task_job_runner.py:121} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-04-03T09:27:09.259+0000] {process_utils.py:131} INFO - Sending Signals.SIGTERM to group 57. PIDs of all processes in the group: [57]
+[2025-04-03T09:27:09.261+0000] {process_utils.py:86} INFO - Sending the signal Signals.SIGTERM to group 57
+[2025-04-03T09:27:09.263+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-04-03T09:27:09.327+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/full_pipeline_dag.py", line 31, in download_data
+    download_parquet()
+  File "/opt/pipeline/ingest/download_data.py", line 11, in download_parquet
+    response = requests.get(url)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 747, in send
+    r.content
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/response.py", line 628, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/response.py", line 567, in read
+    data = self._fp_read(amt) if not fp_closed else b""
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/response.py", line 533, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+  File "/usr/local/lib/python3.8/http/client.py", line 459, in read
+    n = self.readinto(b)
+  File "/usr/local/lib/python3.8/http/client.py", line 503, in readinto
+    n = self.fp.readinto(b)
+  File "/usr/local/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/local/lib/python3.8/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/local/lib/python3.8/ssl.py", line 1132, in read
+    return self._sslobj.read(len, buffer)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2452, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-04-03T09:27:09.380+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=full_pipeline_dag, task_id=download_data_parquet, execution_date=20250403T092300, start_date=20250403T092304, end_date=20250403T092709
+[2025-04-03T09:27:09.976+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 132 for task download_data_parquet (Task received SIGTERM signal; 57)
+[2025-04-03T09:27:10.003+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=57, status='terminated', exitcode=1, started='09:23:04') (57) terminated with exit code 1
+[2025-04-03T09:27:10.006+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 143
+[2025-04-03T09:27:10.079+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

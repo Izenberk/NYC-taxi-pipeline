@@ -1,0 +1,8 @@
+# Dockerfile.spark
+FROM bitnami/spark:3.5.0
+
+# Copy custom jars (for S3A)
+COPY ./spark-app/jars /opt/bitnami/spark/jars
+
+# Optional: Set working directory
+WORKDIR /opt/bitnami/spark

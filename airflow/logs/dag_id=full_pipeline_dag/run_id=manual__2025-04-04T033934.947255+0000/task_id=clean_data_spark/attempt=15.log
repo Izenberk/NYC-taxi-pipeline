@@ -1,0 +1,195 @@
+[2025-04-04T04:34:07.377+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T03:39:34.947255+00:00 [queued]>
+[2025-04-04T04:34:07.400+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T03:39:34.947255+00:00 [queued]>
+[2025-04-04T04:34:07.400+0000] {taskinstance.py:2170} INFO - Starting attempt 15 of 17
+[2025-04-04T04:34:07.485+0000] {taskinstance.py:2191} INFO - Executing <Task(SparkSubmitOperator): clean_data_spark> on 2025-04-04 03:39:34.947255+00:00
+[2025-04-04T04:34:07.491+0000] {standard_task_runner.py:60} INFO - Started process 218 to run task
+[2025-04-04T04:34:07.494+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'full_pipeline_dag', 'clean_data_spark', 'manual__2025-04-04T03:39:34.947255+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/full_pipeline_dag.py', '--cfg-path', '/tmp/tmp2_4s8lp0']
+[2025-04-04T04:34:07.497+0000] {standard_task_runner.py:88} INFO - Job 254: Subtask clean_data_spark
+[2025-04-04T04:34:07.587+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-04-04T04:34:07.717+0000] {task_command.py:423} INFO - Running <TaskInstance: full_pipeline_dag.clean_data_spark manual__2025-04-04T03:39:34.947255+00:00 [running]> on host a9e9654e9b9a
+[2025-04-04T04:34:07.914+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='full_pipeline_dag' AIRFLOW_CTX_TASK_ID='clean_data_spark' AIRFLOW_CTX_EXECUTION_DATE='2025-04-04T03:39:34.947255+00:00' AIRFLOW_CTX_TRY_NUMBER='15' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-04T03:39:34.947255+00:00'
+[2025-04-04T04:34:07.928+0000] {base.py:83} INFO - Using connection ID 'spark_default' for task execution.
+[2025-04-04T04:34:07.929+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T04:34:09.158+0000] {spark_submit.py:649} INFO - Using properties file: null
+[2025-04-04T04:34:09.287+0000] {spark_submit.py:649} INFO - Parsed arguments:
+[2025-04-04T04:34:09.288+0000] {spark_submit.py:649} INFO - master                  spark://spark-master:7077
+[2025-04-04T04:34:09.290+0000] {spark_submit.py:649} INFO - remote                  null
+[2025-04-04T04:34:09.290+0000] {spark_submit.py:649} INFO - deployMode              client
+[2025-04-04T04:34:09.291+0000] {spark_submit.py:649} INFO - executorMemory          null
+[2025-04-04T04:34:09.291+0000] {spark_submit.py:649} INFO - executorCores           null
+[2025-04-04T04:34:09.292+0000] {spark_submit.py:649} INFO - totalExecutorCores      null
+[2025-04-04T04:34:09.292+0000] {spark_submit.py:649} INFO - propertiesFile          null
+[2025-04-04T04:34:09.293+0000] {spark_submit.py:649} INFO - driverMemory            null
+[2025-04-04T04:34:09.293+0000] {spark_submit.py:649} INFO - driverCores             null
+[2025-04-04T04:34:09.293+0000] {spark_submit.py:649} INFO - driverExtraClassPath    null
+[2025-04-04T04:34:09.294+0000] {spark_submit.py:649} INFO - driverExtraLibraryPath  null
+[2025-04-04T04:34:09.295+0000] {spark_submit.py:649} INFO - driverExtraJavaOptions  null
+[2025-04-04T04:34:09.295+0000] {spark_submit.py:649} INFO - supervise               false
+[2025-04-04T04:34:09.295+0000] {spark_submit.py:649} INFO - queue                   root.default
+[2025-04-04T04:34:09.296+0000] {spark_submit.py:649} INFO - numExecutors            null
+[2025-04-04T04:34:09.296+0000] {spark_submit.py:649} INFO - files                   null
+[2025-04-04T04:34:09.297+0000] {spark_submit.py:649} INFO - pyFiles                 null
+[2025-04-04T04:34:09.297+0000] {spark_submit.py:649} INFO - archives                null
+[2025-04-04T04:34:09.298+0000] {spark_submit.py:649} INFO - mainClass               null
+[2025-04-04T04:34:09.298+0000] {spark_submit.py:649} INFO - primaryResource         file:/opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T04:34:09.299+0000] {spark_submit.py:649} INFO - name                    arrow-spark
+[2025-04-04T04:34:09.299+0000] {spark_submit.py:649} INFO - childArgs               []
+[2025-04-04T04:34:09.299+0000] {spark_submit.py:649} INFO - jars                    file:/opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar
+[2025-04-04T04:34:09.300+0000] {spark_submit.py:649} INFO - packages                null
+[2025-04-04T04:34:09.300+0000] {spark_submit.py:649} INFO - packagesExclusions      null
+[2025-04-04T04:34:09.301+0000] {spark_submit.py:649} INFO - repositories            null
+[2025-04-04T04:34:09.301+0000] {spark_submit.py:649} INFO - verbose                 true
+[2025-04-04T04:34:09.302+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:09.302+0000] {spark_submit.py:649} INFO - Spark properties used, including those specified through
+[2025-04-04T04:34:09.303+0000] {spark_submit.py:649} INFO - --conf and those from the properties file null:
+[2025-04-04T04:34:09.303+0000] {spark_submit.py:649} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-04-04T04:34:09.304+0000] {spark_submit.py:649} INFO - (spark.master,spark://spark-master:7077)
+[2025-04-04T04:34:09.305+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:09.306+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:09.577+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-04T04:34:09.766+0000] {spark_submit.py:649} INFO - Main class:
+[2025-04-04T04:34:09.767+0000] {spark_submit.py:649} INFO - org.apache.spark.deploy.PythonRunner
+[2025-04-04T04:34:09.768+0000] {spark_submit.py:649} INFO - Arguments:
+[2025-04-04T04:34:09.768+0000] {spark_submit.py:649} INFO - file:/opt/spark-app/clean_yellow_tripdata.py
+[2025-04-04T04:34:09.768+0000] {spark_submit.py:649} INFO - null
+[2025-04-04T04:34:09.769+0000] {spark_submit.py:649} INFO - Spark config:
+[2025-04-04T04:34:09.769+0000] {spark_submit.py:649} INFO - (spark.app.name,arrow-spark)
+[2025-04-04T04:34:09.770+0000] {spark_submit.py:649} INFO - (spark.app.submitTime,1743741249747)
+[2025-04-04T04:34:09.770+0000] {spark_submit.py:649} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-04-04T04:34:09.771+0000] {spark_submit.py:649} INFO - (spark.jars,file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar)
+[2025-04-04T04:34:09.771+0000] {spark_submit.py:649} INFO - (spark.master,spark://spark-master:7077)
+[2025-04-04T04:34:09.771+0000] {spark_submit.py:649} INFO - (spark.repl.local.jars,file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar,file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar)
+[2025-04-04T04:34:09.772+0000] {spark_submit.py:649} INFO - (spark.submit.deployMode,client)
+[2025-04-04T04:34:09.772+0000] {spark_submit.py:649} INFO - (spark.submit.pyFiles,)
+[2025-04-04T04:34:09.772+0000] {spark_submit.py:649} INFO - Classpath elements:
+[2025-04-04T04:34:09.773+0000] {spark_submit.py:649} INFO - file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar
+[2025-04-04T04:34:09.773+0000] {spark_submit.py:649} INFO - file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar
+[2025-04-04T04:34:09.773+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:09.773+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:11.390+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkContext: Running Spark version 3.5.0
+[2025-04-04T04:34:11.391+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-04-04T04:34:11.392+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkContext: Java version 17.0.14
+[2025-04-04T04:34:11.409+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceUtils: ==============================================================
+[2025-04-04T04:34:11.413+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-04-04T04:34:11.414+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceUtils: ==============================================================
+[2025-04-04T04:34:11.415+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkContext: Submitted application: CleanYellowData
+[2025-04-04T04:34:11.426+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-04-04T04:34:11.432+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceProfile: Limiting resource is cpu
+[2025-04-04T04:34:11.433+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-04-04T04:34:11.469+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SecurityManager: Changing view acls to: airflow
+[2025-04-04T04:34:11.470+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SecurityManager: Changing modify acls to: airflow
+[2025-04-04T04:34:11.471+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SecurityManager: Changing view acls groups to:
+[2025-04-04T04:34:11.471+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SecurityManager: Changing modify acls groups to:
+[2025-04-04T04:34:11.472+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+[2025-04-04T04:34:11.638+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO Utils: Successfully started service 'sparkDriver' on port 40681.
+[2025-04-04T04:34:11.668+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkEnv: Registering MapOutputTracker
+[2025-04-04T04:34:11.705+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkEnv: Registering BlockManagerMaster
+[2025-04-04T04:34:11.719+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-04-04T04:34:11.721+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-04-04T04:34:11.724+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-04-04T04:34:11.739+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b9858f2d-cd72-4f1f-8d72-f2b1e5d8398d
+[2025-04-04T04:34:11.748+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-04-04T04:34:11.759+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-04-04T04:34:11.890+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-04-04T04:34:11.975+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-04-04T04:34:12.014+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO SparkContext: Added JAR file:///opt/spark-extra-jars/hadoop-aws-3.3.6.jar at spark://a9e9654e9b9a:40681/jars/hadoop-aws-3.3.6.jar with timestamp 1743741251384
+[2025-04-04T04:34:12.015+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO SparkContext: Added JAR file:///opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar at spark://a9e9654e9b9a:40681/jars/aws-java-sdk-bundle-1.12.696.jar with timestamp 1743741251384
+[2025-04-04T04:34:12.113+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-04-04T04:34:12.156+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO TransportClientFactory: Successfully created connection to spark-master/172.24.0.4:7077 after 20 ms (0 ms spent in bootstraps)
+[2025-04-04T04:34:12.356+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250404043412-0000
+[2025-04-04T04:34:12.363+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34883.
+[2025-04-04T04:34:12.365+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO NettyBlockTransferService: Server created on a9e9654e9b9a:34883
+[2025-04-04T04:34:12.366+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-04-04T04:34:12.373+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, a9e9654e9b9a, 34883, None)
+[2025-04-04T04:34:12.379+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO BlockManagerMasterEndpoint: Registering block manager a9e9654e9b9a:34883 with 434.4 MiB RAM, BlockManagerId(driver, a9e9654e9b9a, 34883, None)
+[2025-04-04T04:34:12.381+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, a9e9654e9b9a, 34883, None)
+[2025-04-04T04:34:12.383+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, a9e9654e9b9a, 34883, None)
+[2025-04-04T04:34:12.385+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250404043412-0000/0 on worker-20250404043115-172.24.0.6-42861 (172.24.0.6:42861) with 2 core(s)
+[2025-04-04T04:34:12.390+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneSchedulerBackend: Granted executor ID app-20250404043412-0000/0 on hostPort 172.24.0.6:42861 with 2 core(s), 1024.0 MiB RAM
+[2025-04-04T04:34:12.601+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250404043412-0000/0 is now RUNNING
+[2025-04-04T04:34:12.641+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-04-04T04:34:12.831+0000] {spark_submit.py:649} INFO - ✅ Spark session received from DAG
+[2025-04-04T04:34:12.832+0000] {spark_submit.py:649} INFO - 📥 Reading raw data...
+[2025-04-04T04:34:12.839+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-04-04T04:34:12.841+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:12 INFO SharedState: Warehouse path is 'file:/opt/airflow/spark-warehouse'.
+[2025-04-04T04:34:14.031+0000] {spark_submit.py:649} INFO - Traceback (most recent call last):
+[2025-04-04T04:34:14.031+0000] {spark_submit.py:649} INFO - File "/opt/spark-app/clean_yellow_tripdata.py", line 9, in <module>
+[2025-04-04T04:34:14.036+0000] {spark_submit.py:649} INFO - clean_yellow_tripdata(spark)
+[2025-04-04T04:34:14.036+0000] {spark_submit.py:649} INFO - File "/opt/pipeline/transform/clean_yellow_tripdata.py", line 9, in clean_yellow_tripdata
+[2025-04-04T04:34:14.040+0000] {spark_submit.py:649} INFO - df = spark.read.parquet(raw_path)
+[2025-04-04T04:34:14.041+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 544, in parquet
+[2025-04-04T04:34:14.044+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-04-04T04:34:14.045+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2025-04-04T04:34:14.046+0000] {spark_submit.py:649} INFO - File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2025-04-04T04:34:14.047+0000] {spark_submit.py:649} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o27.parquet.
+[2025-04-04T04:34:14.048+0000] {spark_submit.py:649} INFO - : java.lang.NoClassDefFoundError: org/apache/hadoop/fs/impl/prefetch/PrefetchingStatistics
+[2025-04-04T04:34:14.049+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+[2025-04-04T04:34:14.050+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+[2025-04-04T04:34:14.051+0000] {spark_submit.py:649} INFO - at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+[2025-04-04T04:34:14.051+0000] {spark_submit.py:649} INFO - at java.base/java.net.URLClassLoader.defineClass(URLClassLoader.java:524)
+[2025-04-04T04:34:14.052+0000] {spark_submit.py:649} INFO - at java.base/java.net.URLClassLoader$1.run(URLClassLoader.java:427)
+[2025-04-04T04:34:14.053+0000] {spark_submit.py:649} INFO - at java.base/java.net.URLClassLoader$1.run(URLClassLoader.java:421)
+[2025-04-04T04:34:14.053+0000] {spark_submit.py:649} INFO - at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+[2025-04-04T04:34:14.054+0000] {spark_submit.py:649} INFO - at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:420)
+[2025-04-04T04:34:14.054+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:592)
+[2025-04-04T04:34:14.055+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[2025-04-04T04:34:14.056+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.s3a.S3AFileSystem.initialize(S3AFileSystem.java:519)
+[2025-04-04T04:34:14.056+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:3469)
+[2025-04-04T04:34:14.057+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.FileSystem.access$300(FileSystem.java:174)
+[2025-04-04T04:34:14.058+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:3574)
+[2025-04-04T04:34:14.058+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:3521)
+[2025-04-04T04:34:14.059+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:540)
+[2025-04-04T04:34:14.060+0000] {spark_submit.py:649} INFO - at org.apache.hadoop.fs.Path.getFileSystem(Path.java:365)
+[2025-04-04T04:34:14.061+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.streaming.FileStreamSink$.hasMetadata(FileStreamSink.scala:53)
+[2025-04-04T04:34:14.062+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:366)
+[2025-04-04T04:34:14.062+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2025-04-04T04:34:14.063+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2025-04-04T04:34:14.064+0000] {spark_submit.py:649} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2025-04-04T04:34:14.065+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2025-04-04T04:34:14.066+0000] {spark_submit.py:649} INFO - at org.apache.spark.sql.DataFrameReader.parquet(DataFrameReader.scala:563)
+[2025-04-04T04:34:14.066+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-04-04T04:34:14.067+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-04-04T04:34:14.068+0000] {spark_submit.py:649} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-04-04T04:34:14.068+0000] {spark_submit.py:649} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-04-04T04:34:14.069+0000] {spark_submit.py:649} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-04-04T04:34:14.070+0000] {spark_submit.py:649} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-04-04T04:34:14.071+0000] {spark_submit.py:649} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-04-04T04:34:14.071+0000] {spark_submit.py:649} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-04-04T04:34:14.072+0000] {spark_submit.py:649} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-04-04T04:34:14.072+0000] {spark_submit.py:649} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-04-04T04:34:14.073+0000] {spark_submit.py:649} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-04-04T04:34:14.073+0000] {spark_submit.py:649} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-04T04:34:14.074+0000] {spark_submit.py:649} INFO - Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.fs.impl.prefetch.PrefetchingStatistics
+[2025-04-04T04:34:14.074+0000] {spark_submit.py:649} INFO - at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+[2025-04-04T04:34:14.075+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:592)
+[2025-04-04T04:34:14.076+0000] {spark_submit.py:649} INFO - at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[2025-04-04T04:34:14.077+0000] {spark_submit.py:649} INFO - ... 36 more
+[2025-04-04T04:34:14.077+0000] {spark_submit.py:649} INFO - 
+[2025-04-04T04:34:14.189+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO SparkContext: Invoking stop() from shutdown hook
+[2025-04-04T04:34:14.190+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-04-04T04:34:14.211+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO SparkUI: Stopped Spark web UI at http://a9e9654e9b9a:4040
+[2025-04-04T04:34:14.215+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-04-04T04:34:14.220+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-04-04T04:34:14.255+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-04-04T04:34:14.301+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO MemoryStore: MemoryStore cleared
+[2025-04-04T04:34:14.303+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO BlockManager: BlockManager stopped
+[2025-04-04T04:34:14.315+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-04-04T04:34:14.323+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-04-04T04:34:14.354+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO SparkContext: Successfully stopped SparkContext
+[2025-04-04T04:34:14.355+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO ShutdownHookManager: Shutdown hook called
+[2025-04-04T04:34:14.356+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO ShutdownHookManager: Deleting directory /tmp/spark-982e6c66-0869-47a2-a6dd-d0931e29ef63
+[2025-04-04T04:34:14.360+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO ShutdownHookManager: Deleting directory /tmp/spark-2a0e20d8-8f17-4ee5-8adc-22dedd32f5db
+[2025-04-04T04:34:14.366+0000] {spark_submit.py:649} INFO - 25/04/04 04:34:14 INFO ShutdownHookManager: Deleting directory /tmp/spark-982e6c66-0869-47a2-a6dd-d0931e29ef63/pyspark-dd921ae1-d6e8-4785-9cce-2ecfc06a8e87
+[2025-04-04T04:34:14.435+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 176, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 575, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py. Error code is: 1.
+[2025-04-04T04:34:14.443+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=full_pipeline_dag, task_id=clean_data_spark, execution_date=20250404T033934, start_date=20250404T043407, end_date=20250404T043414
+[2025-04-04T04:34:14.611+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 254 for task clean_data_spark (Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.master=spark://spark-master:7077 --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --jars /opt/spark-extra-jars/hadoop-aws-3.3.6.jar,/opt/spark-extra-jars/aws-java-sdk-bundle-1.12.696.jar --name arrow-spark --verbose --queue root.default --deploy-mode client /opt/spark-app/clean_yellow_tripdata.py. Error code is: 1.; 218)
+[2025-04-04T04:34:14.640+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-04-04T04:34:14.684+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

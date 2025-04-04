@@ -1,2 +1,7 @@
+apache-airflow-providers-apache-spark==4.11.0
+apache-airflow-providers-docker
 py4j==0.10.9.7
-pyspark==3.5.5
+pyspark==3.5.1
+requests
+pandas
+minio
