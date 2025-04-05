@@ -2,6 +2,8 @@
 data/
 spark-dist/
 spark-app/
+*.jar
+*.tgz
 
 # Airflow logs and SQLite DB
 airflow/logs/
