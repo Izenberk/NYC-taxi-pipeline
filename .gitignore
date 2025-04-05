@@ -6,3 +6,6 @@ spark-app/jars/
 spark-dist/
 spark-app/jars/
 data/
+airflow/logs/
+airflow/airflow.db
+airflow/airflow.db-journal
