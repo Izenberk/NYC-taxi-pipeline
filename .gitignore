@@ -1,6 +1,16 @@
-spark-app/
-spark-dist/
+# Ignore raw data and spark tarballs
 data/
+spark-dist/
+spark-app/
+
+# Airflow logs and SQLite DB
 airflow/logs/
 airflow/airflow.db
-airflow/airflow.db-journal
+airflow/airflow-webserver.pid
+
+# PyCharm, VSCode, OS trash
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
