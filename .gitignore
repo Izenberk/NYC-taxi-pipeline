@@ -3,3 +3,6 @@ spark-app/jars/*.jar
 spark-dist/spark-3.5.0-bin-hadoop3/
 spark-dist/spark-3.5.0-bin-hadoop3/
 spark-app/jars/
+spark-dist/
+spark-app/jars/
+data/
